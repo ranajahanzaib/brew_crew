@@ -13,9 +13,11 @@ class RegisterScreen extends StatefulWidget {
 
 class _RegisterScreenState extends State<RegisterScreen> {
   final AuthService _auth = AuthService();
+  final _formKey = GlobalKey<FormState>();
 
   String email = '';
   String password = '';
+  String error = '';
 
   @override
   Widget build(BuildContext context) {
@@ -41,10 +43,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
           padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 50.0),
           // ignore: deprecated_member_use
           child: Form(
+            key: _formKey,
             child: Column(
               children: [
                 SizedBox(height: 20.0),
                 TextFormField(
+                  validator: (val) => val!.isEmpty ? 'Enter an email' : null,
                   decoration: InputDecoration(
                     hintText: 'Email',
                     fillColor: Colors.white,
@@ -55,6 +59,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 ),
                 SizedBox(height: 20.0),
                 TextFormField(
+                  validator: (val) =>
+                      val!.length < 6 ? 'Enter a password 6+ chars long' : null,
                   obscureText: true,
                   decoration: InputDecoration(
                     hintText: 'Password',
@@ -71,7 +77,20 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     'Register',
                     style: TextStyle(color: Colors.white),
                   ),
-                  onPressed: () {},
+                  onPressed: () async {
+                    if (_formKey.currentState!.validate()) {
+                      dynamic user = await _auth.registerWithEmailAndPassword(
+                          email, password);
+                      if (user == null) {
+                        setState(() => error = 'Please supply a valid email');
+                      }
+                    }
+                  },
+                ),
+                SizedBox(height: 12.0),
+                Text(
+                  error,
+                  style: TextStyle(color: Colors.red, fontSize: 14.0),
                 ),
               ],
             ),
