@@ -3,7 +3,8 @@ import 'package:brew_crew/services/auth.dart';
 import 'package:flutter/material.dart';
 
 class SignInScreen extends StatefulWidget {
-  const SignInScreen({Key? key}) : super(key: key);
+  final Function toggleView;
+  SignInScreen({required this.toggleView});
 
   @override
   _SignInScreenState createState() => _SignInScreenState();
@@ -23,6 +24,16 @@ class _SignInScreenState extends State<SignInScreen> {
         backgroundColor: Colors.brown[400],
         elevation: 0.0,
         title: Text('Sign In'),
+        actions: [
+          FlatButton.icon(
+            onPressed: () => widget.toggleView(),
+            icon: Icon(Icons.person, color: Colors.white),
+            label: Text(
+              'Register',
+              style: TextStyle(color: Colors.white),
+            ),
+          ),
+        ],
       ),
       body: Center(
         child: Container(
@@ -59,10 +70,7 @@ class _SignInScreenState extends State<SignInScreen> {
                     'Sign In',
                     style: TextStyle(color: Colors.white),
                   ),
-                  onPressed: () async {
-                    print(email);
-                    print(password);
-                  },
+                  onPressed: () {},
                 ),
               ],
             ),

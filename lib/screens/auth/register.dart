@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:brew_crew/services/auth.dart';
 
 class RegisterScreen extends StatefulWidget {
-  const RegisterScreen({Key? key}) : super(key: key);
+  final Function toggleView;
+  RegisterScreen({required this.toggleView});
+
+  // const RegisterScreen({Key? key, this.toggleView}) : super(key: key);
 
   @override
   _RegisterScreenState createState() => _RegisterScreenState();
@@ -22,6 +25,16 @@ class _RegisterScreenState extends State<RegisterScreen> {
         backgroundColor: Colors.brown[400],
         elevation: 0.0,
         title: Text('Register'),
+        actions: [
+          FlatButton.icon(
+            onPressed: () => widget.toggleView(),
+            icon: Icon(Icons.person, color: Colors.white),
+            label: Text(
+              'Sign In',
+              style: TextStyle(color: Colors.white),
+            ),
+          ),
+        ],
       ),
       body: Center(
         child: Container(
@@ -58,10 +71,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     'Register',
                     style: TextStyle(color: Colors.white),
                   ),
-                  onPressed: () async {
-                    print(email);
-                    print(password);
-                  },
+                  onPressed: () {},
                 ),
               ],
             ),
