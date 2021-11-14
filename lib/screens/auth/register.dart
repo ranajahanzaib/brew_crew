@@ -33,6 +33,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
               elevation: 0.0,
               title: Text('Register'),
               actions: [
+                // ignore: deprecated_member_use
                 FlatButton.icon(
                   onPressed: () => widget.toggleView(),
                   icon: Icon(Icons.person, color: Colors.white),
@@ -74,6 +75,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         },
                       ),
                       SizedBox(height: 20.0),
+                      // ignore: deprecated_member_use
                       RaisedButton(
                         color: Colors.brown[500],
                         child: Text(

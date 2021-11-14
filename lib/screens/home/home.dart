@@ -48,6 +48,7 @@ class HomeScreen extends StatelessWidget {
                   'Logout',
                   style: TextStyle(color: Colors.white),
                 )),
+            // ignore: deprecated_member_use
             FlatButton.icon(
               icon: Icon(Icons.settings, color: Colors.white),
               label: Text(
@@ -59,7 +60,12 @@ class HomeScreen extends StatelessWidget {
           ],
         ),
         body: Center(
-          child: BrewList(),
+          child: Container(
+              decoration: BoxDecoration(
+                  image: DecorationImage(
+                      image: AssetImage('assets/images/coffee_bg.png'),
+                      fit: BoxFit.cover)),
+              child: BrewList()),
         ),
       ),
     );

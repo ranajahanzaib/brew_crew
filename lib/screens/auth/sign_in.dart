@@ -1,4 +1,3 @@
-import 'package:brew_crew/screens/auth_wrapper.dart';
 import 'package:brew_crew/screens/styles/loading.dart';
 import 'package:brew_crew/screens/styles/text_input_decoration.dart';
 import 'package:brew_crew/services/auth.dart';
@@ -32,6 +31,7 @@ class _SignInScreenState extends State<SignInScreen> {
               elevation: 0.0,
               title: Text('Sign In'),
               actions: [
+                // ignore: deprecated_member_use
                 FlatButton.icon(
                   onPressed: () => widget.toggleView(),
                   icon: Icon(Icons.person, color: Colors.white),
@@ -72,6 +72,7 @@ class _SignInScreenState extends State<SignInScreen> {
                         },
                       ),
                       SizedBox(height: 20.0),
+                      // ignore: deprecated_member_use
                       RaisedButton(
                         color: Colors.brown[500],
                         child: Text(

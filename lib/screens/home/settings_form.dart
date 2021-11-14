@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:brew_crew/models/user.dart';
 import 'package:brew_crew/screens/styles/loading.dart';
 import 'package:brew_crew/screens/styles/text_input_decoration.dart';
@@ -67,14 +65,17 @@ class _SettingsFormState extends State<SettingsForm> {
                     min: 100,
                     max: 900,
                     divisions: 8,
-                    activeColor:
-                        Colors.brown[_currentStrength ?? 100]!.withOpacity(0.7),
-                    inactiveColor:
-                        Colors.brown[_currentStrength ?? 100]!.withOpacity(0.7),
-                    value: (_currentStrength ?? 100).toDouble(),
+                    activeColor: Colors
+                        .brown[_currentStrength ?? userData!.strength]!
+                        .withOpacity(0.7),
+                    inactiveColor: Colors
+                        .brown[_currentStrength ?? userData!.strength]!
+                        .withOpacity(0.7),
+                    value: (_currentStrength ?? userData!.strength).toDouble(),
                     onChanged: (val) =>
                         setState(() => _currentStrength = val.round()),
                   ),
+                  // ignore: deprecated_member_use
                   RaisedButton(
                     color: Colors.brown[500],
                     child: Text(
