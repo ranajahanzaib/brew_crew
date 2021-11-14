@@ -1,4 +1,5 @@
 import 'package:brew_crew/screens/auth_wrapper.dart';
+import 'package:brew_crew/screens/styles/text_input_decoration.dart';
 import 'package:brew_crew/services/auth.dart';
 import 'package:flutter/material.dart';
 
@@ -37,34 +38,28 @@ class _SignInScreenState extends State<SignInScreen> {
           ),
         ],
       ),
-      body: Center(
-        child: Container(
-          padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 50.0),
-          // ignore: deprecated_member_use
+      body: Container(
+        padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 50.0),
+        child: Center(
           child: Form(
             key: _formKey,
             child: Column(
               children: [
                 SizedBox(height: 20.0),
                 TextFormField(
+                  decoration: textInputDecoration.copyWith(hintText: 'Email'),
                   validator: (val) => val!.isEmpty ? 'Enter an email' : null,
-                  decoration: InputDecoration(
-                    hintText: 'Email',
-                    fillColor: Colors.white,
-                  ),
                   onChanged: (value) {
                     setState(() => email = value);
                   },
                 ),
                 SizedBox(height: 20.0),
                 TextFormField(
+                  decoration:
+                      textInputDecoration.copyWith(hintText: 'Password'),
                   validator: (val) =>
                       val!.length < 6 ? 'Enter a password 6+ chars long' : null,
                   obscureText: true,
-                  decoration: InputDecoration(
-                    hintText: 'Password',
-                    fillColor: Colors.white,
-                  ),
                   onChanged: (value) {
                     setState(() => password = value);
                   },

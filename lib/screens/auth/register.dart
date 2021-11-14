@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:brew_crew/services/auth.dart';
+import 'package:brew_crew/screens/styles/text_input_decoration.dart';
 
 class RegisterScreen extends StatefulWidget {
   final Function toggleView;
@@ -48,11 +49,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
               children: [
                 SizedBox(height: 20.0),
                 TextFormField(
+                  decoration: textInputDecoration.copyWith(hintText: 'Email'),
                   validator: (val) => val!.isEmpty ? 'Enter an email' : null,
-                  decoration: InputDecoration(
-                    hintText: 'Email',
-                    fillColor: Colors.white,
-                  ),
                   onChanged: (value) {
                     setState(() => email = value);
                   },
@@ -62,10 +60,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   validator: (val) =>
                       val!.length < 6 ? 'Enter a password 6+ chars long' : null,
                   obscureText: true,
-                  decoration: InputDecoration(
-                    hintText: 'Password',
-                    fillColor: Colors.white,
-                  ),
+                  decoration:
+                      textInputDecoration.copyWith(hintText: 'Password'),
                   onChanged: (value) {
                     setState(() => password = value);
                   },
