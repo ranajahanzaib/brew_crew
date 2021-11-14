@@ -30,3 +30,4 @@ yarn-error.log*
 .idea/
 .pub-cache/
 .packages
+*google-services.json
