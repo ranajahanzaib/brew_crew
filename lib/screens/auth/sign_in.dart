@@ -12,9 +12,11 @@ class SignInScreen extends StatefulWidget {
 
 class _SignInScreenState extends State<SignInScreen> {
   final AuthService _auth = AuthService();
+  final _formKey = GlobalKey<FormState>();
 
   String email = '';
   String password = '';
+  String error = '';
 
   @override
   Widget build(BuildContext context) {
@@ -40,10 +42,12 @@ class _SignInScreenState extends State<SignInScreen> {
           padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 50.0),
           // ignore: deprecated_member_use
           child: Form(
+            key: _formKey,
             child: Column(
               children: [
                 SizedBox(height: 20.0),
                 TextFormField(
+                  validator: (val) => val!.isEmpty ? 'Enter an email' : null,
                   decoration: InputDecoration(
                     hintText: 'Email',
                     fillColor: Colors.white,
@@ -54,6 +58,8 @@ class _SignInScreenState extends State<SignInScreen> {
                 ),
                 SizedBox(height: 20.0),
                 TextFormField(
+                  validator: (val) =>
+                      val!.length < 6 ? 'Enter a password 6+ chars long' : null,
                   obscureText: true,
                   decoration: InputDecoration(
                     hintText: 'Password',
@@ -70,7 +76,22 @@ class _SignInScreenState extends State<SignInScreen> {
                     'Sign In',
                     style: TextStyle(color: Colors.white),
                   ),
-                  onPressed: () {},
+                  onPressed: () async {
+                    if (_formKey.currentState!.validate()) {
+                      print('Valid');
+                      dynamic user = await _auth.signInWithEmailAndPassword(
+                          email, password);
+                      if (user == null) {
+                        setState(() => error =
+                            "Sorry, that didn't work. Please, try again.");
+                      }
+                    }
+                  },
+                ),
+                SizedBox(height: 12.0),
+                Text(
+                  error,
+                  style: TextStyle(color: Colors.red, fontSize: 14.0),
                 ),
               ],
             ),
