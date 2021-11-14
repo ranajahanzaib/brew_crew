@@ -1,15 +1,14 @@
-import 'package:brew_crew/screens/auth_wrapper.dart';
-import 'package:brew_crew/services/auth.dart';
 import 'package:flutter/material.dart';
+import 'package:brew_crew/services/auth.dart';
 
-class SignInScreen extends StatefulWidget {
-  const SignInScreen({Key? key}) : super(key: key);
+class RegisterScreen extends StatefulWidget {
+  const RegisterScreen({Key? key}) : super(key: key);
 
   @override
-  _SignInScreenState createState() => _SignInScreenState();
+  _RegisterScreenState createState() => _RegisterScreenState();
 }
 
-class _SignInScreenState extends State<SignInScreen> {
+class _RegisterScreenState extends State<RegisterScreen> {
   final AuthService _auth = AuthService();
 
   String email = '';
@@ -22,7 +21,7 @@ class _SignInScreenState extends State<SignInScreen> {
       appBar: AppBar(
         backgroundColor: Colors.brown[400],
         elevation: 0.0,
-        title: Text('Sign In'),
+        title: Text('Register'),
       ),
       body: Center(
         child: Container(
@@ -56,7 +55,7 @@ class _SignInScreenState extends State<SignInScreen> {
                 RaisedButton(
                   color: Colors.brown[500],
                   child: Text(
-                    'Sign In',
+                    'Register',
                     style: TextStyle(color: Colors.white),
                   ),
                   onPressed: () async {
