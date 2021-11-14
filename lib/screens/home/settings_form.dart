@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:brew_crew/screens/styles/text_input_decoration.dart';
 import 'package:flutter/material.dart';
 // import 'package:brew_crew/screens/styles/'
@@ -48,7 +50,19 @@ class _SettingsFormState extends State<SettingsForm> {
             }).toList(),
             onChanged: (val) => setState(() => _currentSugars = val as String?),
           ),
-          // slider
+          Slider(
+            label: 'Strength ' + (_currentStrength! / 100).round().toString() ??
+                'Strength',
+            min: 100,
+            max: 900,
+            divisions: 8,
+            activeColor:
+                Colors.brown[_currentStrength ?? 100]!.withOpacity(0.7),
+            inactiveColor:
+                Colors.brown[_currentStrength ?? 100]!.withOpacity(0.7),
+            value: (_currentStrength ?? 100).toDouble(),
+            onChanged: (val) => setState(() => _currentStrength = val.round()),
+          ),
           RaisedButton(
             color: Colors.brown[500],
             child: Text(
