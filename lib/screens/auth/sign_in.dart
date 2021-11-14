@@ -27,12 +27,12 @@ class _SignInScreenState extends State<SignInScreen> {
         child: RaisedButton(
           child: Text('Sign In Anonymously'),
           onPressed: () async {
-            dynamic result = await _auth.signInAnonymously();
-            if (result == null) {
+            dynamic user = await _auth.signInAnonymously();
+            if (user == null) {
               print('Error signing in');
             } else {
               print('Signed in');
-              print(result.uid);
+              print(user.uid);
             }
             // Navigator.pushNamed(context, '/');
           },
