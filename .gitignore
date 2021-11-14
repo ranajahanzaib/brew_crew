@@ -31,3 +31,4 @@ yarn-error.log*
 .pub-cache/
 .packages
 *google-services.json
+.flutter-plugins*
