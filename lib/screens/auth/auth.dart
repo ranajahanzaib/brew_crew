@@ -1,3 +1,4 @@
+import 'package:brew_crew/screens/auth/sign_in.dart';
 import 'package:flutter/material.dart';
 
 class AuthScreen extends StatefulWidget {
@@ -11,7 +12,7 @@ class _AuthScreenState extends State<AuthScreen> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Text('Auth Screen'),
+      child: SignInScreen(),
     );
   }
 }
