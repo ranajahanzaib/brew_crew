@@ -14,27 +14,15 @@ void main() async {
 }
 
 class BrewCrewApp extends StatelessWidget {
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    // return StreamProvider<AppUser?>.value(
-    //   value: AuthService().user,
-    //   initialData: null,
-    //   child: MaterialApp(
-    //     home: AuthWrapper(),
-    //   ),
-    // );
-    return StreamBuilder(
-      stream: AuthService().user,
-      builder: (context, snapshot) {
-        if (snapshot.hasData) {
-          return MaterialApp(home: HomeScreen());
-        } else {
-          return MaterialApp(
-            home: AuthWrapper(),
-          );
-        }
-      },
+    return StreamProvider<AppUser?>.value(
+      initialData: null,
+      catchError: (_, __) => null,
+      value: AuthService().user,
+      child: MaterialApp(
+        home: AuthWrapper(),
+      ),
     );
   }
 }
