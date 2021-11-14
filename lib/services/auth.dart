@@ -5,7 +5,15 @@ class AuthService {
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
   AppUser? _userFromFirebaseUser(User user) {
+    // ignore: unnecessary_null_comparison
     return user != null ? AppUser(uid: user.uid) : null;
+  }
+
+  // Auth Change User Stream
+  Stream<AppUser?> get user {
+    return _auth
+        .authStateChanges()
+        .map((User? user) => _userFromFirebaseUser(user!));
   }
 
   // Sign in Anonymously

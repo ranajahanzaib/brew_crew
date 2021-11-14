@@ -21,21 +21,23 @@ class _SignInScreenState extends State<SignInScreen> {
         elevation: 0.0,
         title: Text('Sign In'),
       ),
-      body: Container(
-        padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 50.0),
-        // ignore: deprecated_member_use
-        child: RaisedButton(
-          child: Text('Sign In Anonymously'),
-          onPressed: () async {
-            dynamic user = await _auth.signInAnonymously();
-            if (user == null) {
-              print('Error signing in');
-            } else {
-              print('Signed in');
-              print(user.uid);
-            }
-            // Navigator.pushNamed(context, '/');
-          },
+      body: Center(
+        child: Container(
+          padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 50.0),
+          // ignore: deprecated_member_use
+          child: RaisedButton(
+            child: Text('Sign In Anonymously'),
+            onPressed: () async {
+              dynamic user = await _auth.signInAnonymously();
+              if (user == null) {
+                print('Error signing in');
+              } else {
+                print('Signed in');
+                print(user.uid);
+              }
+              // Navigator.pushNamed(context, '/');
+            },
+          ),
         ),
       ),
     );
