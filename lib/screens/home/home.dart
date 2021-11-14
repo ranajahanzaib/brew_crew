@@ -12,6 +12,17 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    void _showSettingsPanel() {
+      showModalBottomSheet(
+          context: context,
+          builder: (context) {
+            return Container(
+              padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 60.0),
+              child: Text('Bottom Sheet'),
+            );
+          });
+    }
+
     return StreamProvider<List<Brew>?>.value(
       value: DatabaseService().brews,
       initialData: null,
@@ -35,7 +46,15 @@ class HomeScreen extends StatelessWidget {
                 label: Text(
                   'Logout',
                   style: TextStyle(color: Colors.white),
-                ))
+                )),
+            FlatButton.icon(
+              icon: Icon(Icons.settings, color: Colors.white),
+              label: Text(
+                'Settings',
+                style: TextStyle(color: Colors.white),
+              ),
+              onPressed: () => _showSettingsPanel(),
+            )
           ],
         ),
         body: Center(
