@@ -32,3 +32,4 @@ yarn-error.log*
 .packages
 *google-services.json
 .flutter-plugins*
+lib/generated_plugin_registrant.dart
