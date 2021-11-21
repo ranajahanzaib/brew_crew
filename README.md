@@ -6,16 +6,12 @@
 [![Firebase Version](https://img.shields.io/badge/Firebase-9.0.2-f5Cb2b.svg)](https://pub.dev/packages/firebase)
 [![CloudFirestore Version](https://img.shields.io/badge/Cloud_Firestore-2.14.4-f5Cb2b.svg)](https://pub.dev/packages/cloud_firestore)
 
-<br>
-
 ## Flutter App based on [The Net Ninja](https://github.com/iamshaunjp)'s Flutter & Firebase course.
 
-<br>
 <br>
 <center>
 <img src='brew_crew.png'>&nbsp;&nbsp;<img src='brew_crew_update-preferences.png'>
 </center>
-<br>
 <br>
 
 ---
