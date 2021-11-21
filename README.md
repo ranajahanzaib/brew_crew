@@ -8,6 +8,12 @@
 
 Flutter App based on [The Net Ninja](https://github.com/iamshaunjp)'s Flutter & Firebase course.
 
+### Screenshots
+
+<center>
+<img src='brew_crew.png'>&nbsp;&nbsp;<img src='brew_crew_update-preferences.png'>
+</center>
+
 ## Contributing
 
 We'd love to accept your patches and contributions to this project. There are just a few guidelines you need to follow.
