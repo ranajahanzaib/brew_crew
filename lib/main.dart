@@ -20,6 +20,7 @@ class BrewCrewApp extends StatelessWidget {
       value: AuthService().user,
       child: MaterialApp(
         home: AuthWrapper(),
+        debugShowCheckedModeBanner: false,
       ),
     );
   }

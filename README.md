@@ -1,9 +1,12 @@
-# Project Title
+# Brew Crew
 
-[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](./CONTRIBUTING.md)
+[![GitHub license](https://img.shields.io/badge/License-MIT-blue.svg)](./LICENSE) [![PRs Welcome](https://img.shields.io/badge/PRs-Welcome-brightgreen.svg)](./CONTRIBUTING.md)
+[![Flutter Version](https://img.shields.io/badge/Flutter-2.5.3-5DC4FE.svg)](https://flutter.dev)
+[![Dart Version](https://img.shields.io/badge/Dart-2.14.4-305AB3.svg)](https://dart.dev)
+[![Firebase Version](https://img.shields.io/badge/Firebase-9.0.2-f5Cb2b.svg)](https://pub.dev/packages/firebase)
+[![CloudFirestore Version](https://img.shields.io/badge/Cloud_Firestore-2.14.4-f5Cb2b.svg)](https://pub.dev/packages/cloud_firestore)
 
-
-This is another Open Source Project.
+Flutter App based on [The Net Ninja](https://github.com/iamshaunjp)'s Flutter & Firebase course.
 
 ## Contributing
 
@@ -13,7 +16,7 @@ We'd love to accept your patches and contributions to this project. There are ju
 
 This project follows [Contributor Covenant](https://www.contributor-covenant.org/)
 as it's Code of Conduct, and we expect all project participants to adhere to it.
-Please read the [full guide](./CODE_OF_CONDUCT.md) so that you can understand 
+Please read the [full guide](./CODE_OF_CONDUCT.md) so that you can understand
 what actions will not be tolerated.
 
 ### [Contributing Guide](./CONTRIBUTING.md)
